@@ -7,13 +7,11 @@ programa {
 //Melhorias a serem implementadas
 
 //1) Validar se a linha e coluna informado pelo usuário estão dentro dos limites( 0 ,1 ,2 ) ou -1
-//2) O jogo acaba apenas quando o usudo jogador 2
-ário informar -1 ( ao informar linha ou coluna ) , neste caso retornar a quantidade de vitorias do jogador 1 e 
+//2) O jogo acaba apenas quando o usuário informar -1 ( ao informar linha ou coluna ) , neste caso retornar a quantidade de vitorias do jogador 1 e do jogador 2
+
 //Melhorias técnicas
 
-//) Identificar pontos de melhorias técnicas, como otimização de variáveis , reaproveitamento de funções , entre outros.
-//Vocês teram hoje e segunda feira para me entregarem essa atividade, falaremos sobre ela na daily de segunda feira
-
+//1) Identificar pontos de melhorias técnicas, como otimização de variáveis , reaproveitamento de funções , entre outros.
 	funcao inicio() {
 	    /*Declaração de variaveis*/
 	    cadeia jogador1,jogador2, jogadorDaVez
