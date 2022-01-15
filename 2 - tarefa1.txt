@@ -1,0 +1,54 @@
+Responder as seguintes questões:
+1 - O que é metodologia ágil e quais suas vantagens e desvantagens.
+
+A metodologia ágil é uma forma de realizar projetos. Através dela, tendo 4 princípios como guia,
+uma equipe de desenvolvimento é capaz de desenvolver boas soluções rapidamente. Nela, a interação
+entre os membros da equipe é mais importante que os processos e as ferramentas, um software funcionando
+é mais importante que uma documentação robusta, a colaboração com o cliente é muito mais importante que
+a negociação de um contrato e a resposta às mudanças é mais importante do que seguir um plano.
+Vantagens: 
+A cada Sprint um novo recurso funcional do software é entregue aos Clientes
+O modelo responde muito bem a mudanças. 
+Os clientes podem olhar os recursos que atendem as suas necessidades.
+ Desvantagens: 
+O risco de um projeto que não acaba é muito alto quando se estão sempre adicionando novas funcionalidades.
+É difícil estimar o tempo e o esforço necessários para realizar projetos complexos.
+Falta de documentação(o que é bom na maioria dos casos, porém, por vezes, é necessário ter em mãos
+algum tipo de documentação).
+
+2 - Descreva detalhadamente a função de cada integrante do time Scrum (PO, Scrum master, time de desenvolvimento)
+
+PO(Product Owner): Ele é o representante do cliente. Ele sabe quais são as necessidades reais do
+cliente e fornece ao Time de Desenvolvimento todas as informações necessárias sobre as funcionalidades
+que o produto deve ter. Usando outra definição, eles traduzem os desejos do cliente em uma lista de
+itens ou requisitos que devem ser desenvolvidos pelo Time de Desenvolvimento.
+
+Scrum Master: É o líder que garante que as coisas funcionem corretamente. Ele é a garantia que o grupo
+está utilizando o Scrum corretamente. Além disso, ele também remove os  obstáculos que atrapalham que 
+o Time de Desenvolvimento trabalhe de modo eficiente.
+
+Time de Desenvolvimento: O conjunto dos desenvolvedores encarregados de desenvolver o Software(ou incremento). 
+Não existem líderes dentro do time, os membros são substituíveis(sem muita perda de produtividade), e 
+todos são igualmente responsáveis pelo sucesso de um software. A falta de um líder torna o time 
+auto-organizado(os próprios membros vão gerir uns aos outros igualmente).
+
+3 - Descreva brevemente o que é Sprint
+Ciclo de desenvolvimento de um projeto.
+
+4 - Descreva brevemente o que é Backlog do produto e backlog da sprint
+Backlog do Produto: Tudo aquilo que é necessário no produto. Todas as funcionalidades essenciais que o produto deve ter.
+
+Backlog da Sprint: É a lista das funcionalidades que estarão no próximo incremento e o que é
+ necessário para entrega-las. O que faremos na próxima e como faremos isso.
+
+5 - Descreva detalhadamente as cerimônias do Scrum (Daily, planning, Review e retrospectiva)
+Daily: É uma reunião diárias de pelo menos 15 minutos. Nessa reunião o time de desenvolvimento 
+para dos problemas que encontraram, o que estão fazendo e o que irão fazer hoje.
+
+Planning: É a reunião onde o time planeja tudo o que irá fazer na próxima Sprint.
+
+Review: A avaliação do que foi entregue pela equipe. Nela, é verificado se todos os requisitos
+ estabelecidos foram respeitados.
+
+Retrospectiva: É uma reunião que busca analisar o que ocorreu na última Sprint. Nela o grupo discute 
+a respeito do que foi bom e do que foi ruim, e também do que fazer para melhorar mais ainda na próxima Sprint.

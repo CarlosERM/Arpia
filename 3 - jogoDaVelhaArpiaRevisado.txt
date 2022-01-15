@@ -1,0 +1,207 @@
+programa {
+//Alguns dos problemas a serem corrigidos:
+
+//1) Existe situações que o usuário deveria ganhar na diagonal e/ou vertical e/ou horizontal mas o programa continua indevidamente
+//2) Quando o jogo deu velha o programa não exibe esta informação e continua solicitando jogadas
+
+//Melhorias a serem implementadas
+
+//1) Validar se a linha e coluna informado pelo usuário estão dentro dos limites( 0 ,1 ,2 ) ou -1
+//2) O jogo acaba apenas quando o usudo jogador 2
+ário informar -1 ( ao informar linha ou coluna ) , neste caso retornar a quantidade de vitorias do jogador 1 e 
+//Melhorias técnicas
+
+//) Identificar pontos de melhorias técnicas, como otimização de variáveis , reaproveitamento de funções , entre outros.
+//Vocês teram hoje e segunda feira para me entregarem essa atividade, falaremos sobre ela na daily de segunda feira
+
+	funcao inicio() {
+	    /*Declaração de variaveis*/
+	    cadeia jogador1,jogador2, jogadorDaVez
+    	    cadeia jogo[3][3]
+    	    inteiro linha,coluna
+    	    cadeia ultimaJogada
+    	    inteiro linhaJogada,colunaJogada
+    	    logico vezJogador = verdadeiro
+    	    inteiro vitoria1 = 0, vitoria2 = 0
+    	    /*Informativo na tela*/
+    		exibeTitulo()
+    		/*Inicializa matriz . Neste exemplo inicializa apenas para evitar exception de null pointer*/
+    		inicializaMatriz(jogo)
+
+    		/*Solicita os nomes dos jogadores*/
+    		escreva("Digite o nome do jogador 1\n")
+    		leia(jogador1)
+    		escreva("Digite o nome do jogador 2\n")
+    		leia(jogador2)
+
+    		/*limpa tela*/
+    		limpa()
+
+    		/*Informa as regras do jogo*/
+    		exibeRegras(jogador1,jogador2)
+		logico situacao = verdadeiro
+		inteiro verifica
+    	    /*Laco de repeticao para realizacao das jogadas*/
+    	    ultimaJogada = "O"	
+    	    enquanto (situacao) {
+    	    		verifica = verificaStatus(jogo, ultimaJogada, jogador1, jogador2, vitoria1, vitoria2) 
+			//Verifica se deu velha ou se houve um vencedor.
+			se(verifica == 1) {
+				inicializaMatriz(jogo)
+			} senao se(verifica == 3) {
+				escreva("\nDEU VELHA!!!!\n")
+				inicializaMatriz(jogo)
+			}
+			
+    	    		/*exibe status atualizado da matriz*/
+	    	     exibeTela(jogo)
+			//alterna os jogadores.
+	    	    	se(vezJogador){
+	    	    		ultimaJogada = "X"
+	    	    		vezJogador= nao vezJogador
+	    	    		jogadorDaVez = jogador1
+	    	    	} senao {
+	    	    		ultimaJogada = "O"
+	    	    		vezJogador= nao vezJogador
+	    	    		jogadorDaVez = jogador2
+	    	    	}
+
+	    	     escreva(jogadorDaVez," digite a linha do ", ultimaJogada, " => ")
+	    	     leia(linhaJogada)
+	    	     //desliga o programa.
+			se(linhaJogada == -1) {
+				pare
+			}
+			
+	    	     escreva(jogadorDaVez," digite a coluna do ", ultimaJogada, " => ")
+	    	     leia(colunaJogada)
+	    	     
+	    	     //desliga o programa.
+			se(colunaJogada == -1) {
+				pare
+			}
+			
+			limpa()
+			
+			//verifica se as posições estão dentro do escopo.
+			se((linhaJogada < 3 e linhaJogada >= 0) ou (colunaJogada < 3 e colunaJogada >= 0)) {
+				se(jogo[linhaJogada][colunaJogada] != " ") {
+	    	     		escreva(" Posição ocupada!\n")
+	    	     		vezJogador = nao vezJogador
+	    	     	} senao {
+	    	     		jogo[linhaJogada][colunaJogada] = ultimaJogada
+	    	     	}
+			} senao {
+				vezJogador = nao vezJogador
+				escreva("Posições inexistentes.\n")
+			}
+	    }
+	    
+	    limpa()
+	    escreva("\nO programa acabou: ")
+	    escreva("\nO jogador ", jogador1, ": ", vitoria1, " vitória(s)")
+	    escreva("\nO jogador", jogador2, ": ", vitoria2, " vitória(s)")
+	}
+	
+
+	funcao exibeTela(cadeia jogo[][]) {
+	    inteiro linha,coluna
+	    escreva("\n---------------------\n")
+	    escreva("      0    1    2\n")
+	    para (linha = 0; linha <= 2; linha++) {
+	            escreva(" ",linha,"  ")
+    		    para (coluna = 0; coluna <=2; coluna++){
+    		        escreva("[ ",jogo[linha][coluna]," ]")    
+    		        se (coluna == 2){escreva("\n")}
+    		    }
+    		}
+    		escreva("---------------------\n")
+	}
+
+	//  1 => Ganhador | 2 => Sem ganhador(jogo continua) | 3=> Sem ganhador (fim de jogo - deu velha)
+	funcao inteiro verificaStatus(cadeia jogo[][], cadeia jogada , cadeia jogador1 , cadeia jogador2, inteiro &vitoria1, inteiro &vitoria2){
+	   cadeia jogadorAtual
+	   inteiro linha, coluna
+	   
+	   se (jogada == "X") { jogadorAtual = jogador1 }
+	   senao { jogadorAtual = jogador2 }
+
+	   // validação linha
+	   para(linha = 0; linha < 3; linha++) {
+	   	se (jogada == jogo[linha][0] e jogo[linha][0]== jogo[linha][1] e jogo[linha][0]== jogo[linha][2]) {
+		   	se(jogada == "X") {
+		   		vitoria1++
+		   	} senao {
+		   		vitoria2++
+		   	}
+		   	
+		   	escreva("\n", jogadorAtual,"!!! ganhou pela horizontal !!!\n")
+		     retorne 1
+	   	}
+	   }
+
+	   // validação coluna
+	   para(coluna = 0; coluna < 3; coluna++) {
+	   	se (jogada == jogo[0][coluna] e jogo[0][coluna] == jogo[1][coluna] e jogo[0][coluna] == jogo[2][coluna]) {
+			se(jogada == "X") {
+		   		vitoria1++
+		   	} senao {
+		   		vitoria2++
+		   	}
+		   	escreva("\n", jogadorAtual,"!!! ganhou pela vertical !!!\n")
+	      	retorne 1
+	   	}
+	   }
+
+	    // validação diagonal
+	   se (jogada == jogo[0][0] e jogo[0][0] == jogo[1][1] e jogo[0][0] == jogo[2][2] ou
+	       jogada == jogo[0][2] e jogo[0][2] == jogo[1][1] e jogo[0][2] == jogo[2][0] ) {
+	    		
+	    		se(jogada == "X") {
+			   	vitoria1++
+			} senao {
+			   	vitoria2++
+			}
+			
+		   	escreva("\n", jogadorAtual,"!!! ganhou pela diagonal !!!\n")
+		   	retorne 1
+	   }
+
+	   //Verifica se existem lugares vazios no tabuleiro.
+	   para(linha = 0; linha < 3; linha++) {
+	   	para(coluna = 0; coluna < 3; coluna++) {
+	        se(jogo[linha][coluna] == " ") {
+	        		retorne 2	
+	        }
+	   	}
+	   }
+	   
+	   retorne 3
+	}
+
+	funcao inicializaMatriz(cadeia jogo[][]){
+	    inteiro l,c
+	    para(l = 0; l <= 2; l++) {
+	        para(c = 0; c <= 2; c++) {
+	            jogo[l][c] = " "
+	        }
+	    }
+	}
+	
+	funcao exibeRegras(cadeia jogador1,cadeia jogador2){
+	    escreva("***********************************************:\n")
+		escreva("Regras do jogo:\n")
+		escreva("Jogador ", jogador1, " joga com o 'X'\n")
+		escreva("Jogador ", jogador2, " joga com o 'O'\n")
+		escreva("***********************************************:\n")
+	}
+	
+	/*funcao responsavel por exibir o titulo do jogo*/
+	funcao exibeTitulo(){
+	    escreva ("--------------------------\n")
+		escreva ("       Jogo da Velha      \n")
+		escreva ("--------------------------\n")
+		escreva ("\n")
+	}
+
+}
